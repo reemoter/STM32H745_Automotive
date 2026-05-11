@@ -1,0 +1,4 @@
+../Mcal/Src/McalGpio.c:12:23:McalGpio_ToggleLed	8	static
+../Mcal/Src/McalGpio.c:20:23:McalGpio_ToggleChannel	16	static
+../Mcal/Src/McalGpio.c:30:23:McalGpio_WriteChannel	16	static
+../Mcal/Src/McalGpio.c:46:37:McalGpio_ReadChannel	24	static

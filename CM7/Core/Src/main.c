@@ -18,10 +18,11 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "MiniEcu.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -137,7 +138,9 @@ Error_Handler();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+  MiniEcu_Init();
 
   /* USER CODE END 2 */
 
@@ -145,7 +148,7 @@ Error_Handler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	  MiniEcu_MainFunction();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

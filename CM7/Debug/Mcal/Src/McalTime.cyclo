@@ -1,0 +1,2 @@
+../Mcal/Src/McalTime.c:12:23:McalTime_DelayMs	1
+../Mcal/Src/McalTime.c:17:25:McalTime_GetTickMs	1

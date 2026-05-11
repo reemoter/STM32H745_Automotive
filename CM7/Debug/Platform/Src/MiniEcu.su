@@ -1,0 +1,2 @@
+../Platform/Src/MiniEcu.c:28:23:MiniEcu_Init	8	static
+../Platform/Src/MiniEcu.c:34:23:MiniEcu_MainFunction	8	static

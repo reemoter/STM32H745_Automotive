@@ -1,0 +1,3 @@
+../App/Src/App.c:13:23:App_Init	1
+../App/Src/App.c:18:23:App_MainFunction_500ms	1
+../App/Src/App.c:23:23:App_MainFunction_1000ms	1

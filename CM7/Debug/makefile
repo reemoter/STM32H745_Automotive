@@ -9,10 +9,15 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Service/Src/subdir.mk
+-include Platform/Src/subdir.mk
+-include Mcal/Src/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Config/subdir.mk
 -include Common/Src/subdir.mk
+-include App/Src/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
