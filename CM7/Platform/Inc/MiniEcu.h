@@ -13,7 +13,7 @@
 /* MiniECU Platform Version */
 #define MINIECU_SW_MAJOR_VERSION    (0u)
 #define MINIECU_SW_MINOR_VERSION    (1u)
-#define MINIECU_SW_PATCH_VERSION    (0u)
+#define MINIECU_SW_PATCH_VERSION    (1u)
 
 
 FUNC(void, AUTOMATIC) MiniEcu_Init(void);

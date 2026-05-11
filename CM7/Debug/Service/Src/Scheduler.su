@@ -1,2 +1,4 @@
-../Service/Src/Scheduler.c:22:23:Scheduler_Init	16	static
-../Service/Src/Scheduler.c:32:23:Scheduler_MainFunction	16	static
+../Service/Src/Scheduler.c:26:23:Scheduler_Init	4	static
+../Service/Src/Scheduler.c:63:23:Scheduler_Tick1ms	4	static
+../Service/Src/Scheduler.c:73:23:Scheduler_Tick1000ms	4	static
+../Service/Src/Scheduler.c:78:23:Scheduler_MainFunction	8	static

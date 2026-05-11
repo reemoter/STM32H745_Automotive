@@ -12,8 +12,7 @@
 
 FUNC(void, AUTOMATIC) Scheduler_Init(void);
 FUNC(void, AUTOMATIC) Scheduler_Tick1ms(void);
+FUNC(void, AUTOMATIC) Scheduler_Tick1000ms(void);
 FUNC(void, AUTOMATIC) Scheduler_MainFunction(void);
-
-
 
 #endif /* INC_SCHEDULER_H_ */

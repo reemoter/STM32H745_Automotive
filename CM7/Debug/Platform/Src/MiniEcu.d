@@ -32,6 +32,8 @@ Platform/Src/MiniEcu.o: ../Platform/Src/MiniEcu.c \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../Mcal/Inc/McalTime.h ../Service/Inc/Scheduler.h ../App/Inc/App.h
 ../Platform/Inc/MiniEcu.h:
 ../Platform/Inc/Std_Types.h:
@@ -70,6 +72,8 @@ Platform/Src/MiniEcu.o: ../Platform/Src/MiniEcu.c \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../Mcal/Inc/McalTime.h:
 ../Service/Inc/Scheduler.h:
 ../App/Inc/App.h:
