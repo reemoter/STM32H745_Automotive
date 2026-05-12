@@ -7,60 +7,53 @@
 
 
 #include "Scheduler.h"
-
-#include "McalTime.h"
-#include "McalGpio.h"
-#include "App.h"
-
-#define SCHEDULER_APP_500MS_PERIOD_MS      (500u)
-#define SCHEDULER_APP_1000MS_PERIOD_MS     (1000u)
-
-static uint32 Scheduler_TickCounterMs = 0u;
-
-static volatile boolean Scheduler_App500msFlag = FALSE;
-static volatile boolean Scheduler_App1000msFlag = FALSE;
+#include "Scheduler_Cfg.h"
+static volatile uint32 Scheduler_TickCounterMs = 0u;
 
 FUNC(void, AUTOMATIC) Scheduler_Init(void)
 {
+    uint8 taskIndex;
 
+    Scheduler_TickCounterMs = 0u;
 
-	Scheduler_TickCounterMs = 0u;
-
-	Scheduler_App500msFlag = FALSE;
-	Scheduler_App1000msFlag = FALSE;
+    for (taskIndex = 0u; taskIndex < SCHEDULER_TASK_COUNT; taskIndex++)
+    {
+        Scheduler_TaskConfig[taskIndex].lastRunTickMs = 0u;
+        Scheduler_TaskConfig[taskIndex].pendingFlag = FALSE;
+    }
 }
-
 
 FUNC(void, AUTOMATIC) Scheduler_Tick1ms(void)
 {
+    uint8 taskIndex;
+
     Scheduler_TickCounterMs++;
 
-    if ((Scheduler_TickCounterMs % SCHEDULER_APP_500MS_PERIOD_MS) == 0u)
+    for (taskIndex = 0u; taskIndex < SCHEDULER_TASK_COUNT; taskIndex++)
     {
-        Scheduler_App500msFlag = TRUE;
-    }
-
-    if ((Scheduler_TickCounterMs % SCHEDULER_APP_1000MS_PERIOD_MS) == 0u)
-    {
-    	Scheduler_App1000msFlag = TRUE;
+        if ((Scheduler_TickCounterMs - Scheduler_TaskConfig[taskIndex].lastRunTickMs)
+            >= Scheduler_TaskConfig[taskIndex].periodMs)
+        {
+            Scheduler_TaskConfig[taskIndex].lastRunTickMs = Scheduler_TickCounterMs;
+            Scheduler_TaskConfig[taskIndex].pendingFlag = TRUE;
+        }
     }
 }
 
-
-
 FUNC(void, AUTOMATIC) Scheduler_MainFunction(void)
 {
-    if (Scheduler_App500msFlag == TRUE)
+    uint8 taskIndex;
+
+    for (taskIndex = 0u; taskIndex < SCHEDULER_TASK_COUNT; taskIndex++)
     {
-        Scheduler_App500msFlag = FALSE;
+        if (Scheduler_TaskConfig[taskIndex].pendingFlag == TRUE)
+        {
+            Scheduler_TaskConfig[taskIndex].pendingFlag = FALSE;
 
-        App_MainFunction_500ms();
-    }
-
-    if (Scheduler_App1000msFlag == TRUE)
-    {
-        Scheduler_App1000msFlag = FALSE;
-
-        App_MainFunction_1000ms();
+            if (Scheduler_TaskConfig[taskIndex].taskFunction != 0)
+            {
+                Scheduler_TaskConfig[taskIndex].taskFunction();
+            }
+        }
     }
 }

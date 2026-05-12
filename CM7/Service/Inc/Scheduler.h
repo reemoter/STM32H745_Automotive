@@ -10,6 +10,17 @@
 
 #include "Std_Types.h"
 
+typedef void (*Scheduler_TaskFunctionType)(void);
+
+typedef struct
+{
+    uint32 periodMs;
+    Scheduler_TaskFunctionType taskFunction;
+    uint32 lastRunTickMs;
+    boolean pendingFlag;
+} Scheduler_TaskConfigType;
+
+
 FUNC(void, AUTOMATIC) Scheduler_Init(void);
 FUNC(void, AUTOMATIC) Scheduler_Tick1ms(void);
 FUNC(void, AUTOMATIC) Scheduler_MainFunction(void);

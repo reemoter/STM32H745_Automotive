@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Config/McalGpio_Cfg.c 
+../Config/McalGpio_Cfg.c \
+../Config/Scheduler_Cfg.c 
 
 OBJS += \
-./Config/McalGpio_Cfg.o 
+./Config/McalGpio_Cfg.o \
+./Config/Scheduler_Cfg.o 
 
 C_DEPS += \
-./Config/McalGpio_Cfg.d 
+./Config/McalGpio_Cfg.d \
+./Config/Scheduler_Cfg.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ Config/%.o Config/%.su Config/%.cyclo: ../Config/%.c Config/subdir.mk
 clean: clean-Config
 
 clean-Config:
-	-$(RM) ./Config/McalGpio_Cfg.cyclo ./Config/McalGpio_Cfg.d ./Config/McalGpio_Cfg.o ./Config/McalGpio_Cfg.su
+	-$(RM) ./Config/McalGpio_Cfg.cyclo ./Config/McalGpio_Cfg.d ./Config/McalGpio_Cfg.o ./Config/McalGpio_Cfg.su ./Config/Scheduler_Cfg.cyclo ./Config/Scheduler_Cfg.d ./Config/Scheduler_Cfg.o ./Config/Scheduler_Cfg.su
 
 .PHONY: clean-Config
 
