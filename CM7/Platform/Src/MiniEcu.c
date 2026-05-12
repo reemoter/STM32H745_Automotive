@@ -12,29 +12,17 @@
 #include "App.h"
 
 #include "main.h"
-
-static uint32 MiniEcu_LastTickMs = 0u;
+#include "McalTimer.h"
 
 FUNC(void, AUTOMATIC) MiniEcu_Init(void)
 {
 	App_Init();
 	Scheduler_Init();
 
-	MiniEcu_LastTickMs = McalTime_GetTickMs();
+	(void)McalTimer_StartSchedulerTick();
 }
 
 FUNC(void, AUTOMATIC) MiniEcu_MainFunction(void)
 {
-    uint32 nowTickMs;
-
-    nowTickMs = McalTime_GetTickMs();
-
-    if ((nowTickMs - MiniEcu_LastTickMs) >= 1u)
-    {
-        MiniEcu_LastTickMs = nowTickMs;
-
-        Scheduler_Tick1ms();
-    }
-
-    Scheduler_MainFunction();
+	Scheduler_MainFunction();
 }

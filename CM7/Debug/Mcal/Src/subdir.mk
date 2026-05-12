@@ -6,15 +6,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Mcal/Src/McalGpio.c \
-../Mcal/Src/McalTime.c 
+../Mcal/Src/McalTime.c \
+../Mcal/Src/McalTimer.c 
 
 OBJS += \
 ./Mcal/Src/McalGpio.o \
-./Mcal/Src/McalTime.o 
+./Mcal/Src/McalTime.o \
+./Mcal/Src/McalTimer.o 
 
 C_DEPS += \
 ./Mcal/Src/McalGpio.d \
-./Mcal/Src/McalTime.d 
+./Mcal/Src/McalTime.d \
+./Mcal/Src/McalTimer.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +27,7 @@ Mcal/Src/%.o Mcal/Src/%.su Mcal/Src/%.cyclo: ../Mcal/Src/%.c Mcal/Src/subdir.mk
 clean: clean-Mcal-2f-Src
 
 clean-Mcal-2f-Src:
-	-$(RM) ./Mcal/Src/McalGpio.cyclo ./Mcal/Src/McalGpio.d ./Mcal/Src/McalGpio.o ./Mcal/Src/McalGpio.su ./Mcal/Src/McalTime.cyclo ./Mcal/Src/McalTime.d ./Mcal/Src/McalTime.o ./Mcal/Src/McalTime.su
+	-$(RM) ./Mcal/Src/McalGpio.cyclo ./Mcal/Src/McalGpio.d ./Mcal/Src/McalGpio.o ./Mcal/Src/McalGpio.su ./Mcal/Src/McalTime.cyclo ./Mcal/Src/McalTime.d ./Mcal/Src/McalTime.o ./Mcal/Src/McalTime.su ./Mcal/Src/McalTimer.cyclo ./Mcal/Src/McalTimer.d ./Mcal/Src/McalTimer.o ./Mcal/Src/McalTimer.su
 
 .PHONY: clean-Mcal-2f-Src
 

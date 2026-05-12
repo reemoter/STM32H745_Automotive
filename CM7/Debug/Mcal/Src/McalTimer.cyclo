@@ -1,0 +1,2 @@
+../Mcal/Src/McalTimer.c:16:33:McalTimer_StartSchedulerTick	2
+../Mcal/Src/McalTimer.c:32:23:McalTimer_PeriodElapsedCallback	2

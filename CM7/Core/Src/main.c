@@ -24,7 +24,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "MiniEcu.h"
-#include "Scheduler.h"
+#include "McalTimer.h"
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -143,7 +145,6 @@ Error_Handler();
   MX_GPIO_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim3);
 
   MiniEcu_Init();
   /* USER CODE END 2 */
@@ -222,10 +223,7 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if (htim->Instance == TIM3)
-    {
-        Scheduler_Tick1000ms();
-    }
+	McalTimer_PeriodElapsedCallback(htim);
 }
 /* USER CODE END 4 */
 
